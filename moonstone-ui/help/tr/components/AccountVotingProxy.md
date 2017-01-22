@@ -1,0 +1,1 @@
+Bir vekil adınıza oy kullanımını yönetir. Moonstone forumunda vekil olarak görev almaya gnüllü kişileri bulabilirsiniz  [Moonstonetalk](https://moonstonetalk.org/index.php/board,104.0.html). 

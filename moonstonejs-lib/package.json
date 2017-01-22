@@ -1,0 +1,55 @@
+{
+  "name": "moonstonejs-lib",
+  "version": "0.4.10",
+  "description": "Pure JavaScript Moonstone library for node.js and browsers.",
+  "browser": {
+    "ws": false,
+    "crypto": false
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist/* & rm -rf ./build/*",
+    "prebuild": "npm run clean",
+    "build": "babel lib --presets babel-preset-es2015 --out-dir dist",
+    "build:watch": "babel lib --presets babel-preset-es2015 --out-dir dist --watch",
+    "prebrowserify": "rm -rf ./build/*",
+    "browserify": "browserify --full-paths dist/browser.js --standalone steemJS -o build/moonstonejs-lib.js -d",
+    "postbrowserify": "uglifyjs --compress --mangle --sequences --drop_console --output build/moonstonejs-lib.min.js -- build/moonstonejs-lib.js",
+    "prepublish": "npm run build"
+  },
+  "author": "Sigve Kvalsvik <bitsharesblocks@gmail.com> (https://github.com/svk31)",
+  "contributors": [
+    "James Calfee <james@jcalfee.info> (https://github.com/jcalfee/)",
+    "Daniel Larimer <dan@cryptonomex.com> (https://github.com/bytemaster/)",
+    "Valentine Zavgorodnev <valentine.zavgorodnev@gmail.com> (https://github.com/valzav/)"
+  ],
+  "license": "BSD-2-Clause-FreeBSD",
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "main": "./dist/index.js",
+  "dependencies": {
+    "bigi": "^1.4.1",
+    "bs58": "^3.0.0",
+    "bytebuffer": "^5.0.0",
+    "create-hash": "^1.1.2",
+    "create-hmac": "^1.1.4",
+    "crypto-js": "^3.1.5",
+    "deep-equal": "^1.0.1",
+    "ecurve": "^1.0.2",
+    "event-emitter": "^0.3.4",
+    "moonstonejs-ws": "file:../moonstonejs-ws",
+    "immutable": "^3.7.6",
+    "secure-random": "^1.1.1"
+  },
+  "devDependencies": {
+    "assert": "^1.3.0",
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^6.0.4",
+    "babel-preset-es2015": "^6.9.0",
+    "browserify": "^13.1.0",
+    "esdoc": "^0.4.3",
+    "mocha": "^2.5.3",
+    "uglifyjs": "^2.4.10"
+  }
+}
